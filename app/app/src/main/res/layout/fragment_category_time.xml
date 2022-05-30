@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    tools:context=".containers.home.fragments.home.categories.deprecated.CategoryTimeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        tools:context=".containers.home.fragments.home.categories.deprecated.CategoryTimeFragment"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/morning_text"
+            android:textSize="30sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewMorningTime"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/adapter_category_high_item" />
+
+        <TextView
+            style="@style/TitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/evening_text"
+            android:textSize="30sp"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewMorningTime" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewEveningTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/adapter_category_high_item" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

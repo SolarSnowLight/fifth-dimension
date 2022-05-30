@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_course"
+    app:startDestination="@id/courseFragment">
+
+    <fragment
+        android:id="@+id/courseFragment"
+        android:name="com.game.app.containers.course.fragments.CourseFragment"
+        android:label="fragment_course"
+        tools:layout="@layout/fragment_course" >
+        <action
+            android:id="@+id/action_courseFragment_to_audioPlayerFragment"
+            app:destination="@id/audioPlayerFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/audioPlayerFragment"
+        android:name="com.game.app.containers.course.fragments.AudioPlayerFragment"
+        android:label="fragment_audio_player"
+        tools:layout="@layout/fragment_audio_player" >
+        <action
+            android:id="@+id/action_audioPlayerFragment_to_courseFragment"
+            app:destination="@id/courseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_in_right" />
+    </fragment>
+</navigation>

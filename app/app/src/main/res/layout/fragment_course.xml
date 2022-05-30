@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".containers.course.fragments.CourseFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:background="@android:color/transparent"
+        app:liftOnScroll="true">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@id/toolbar">
+
+            <ImageView
+                android:id="@+id/imageViewToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_black"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                android:minHeight="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_arrow_left"
+                app:layout_collapseMode="pin"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="128dp"
+                android:background="@android:color/transparent"
+                app:buttonGravity="bottom"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="1.5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <eightbitlab.com.blurview.BlurView
+                    android:id="@+id/blurView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_gradient_course"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@android:color/transparent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewTitleCourse"
+                            style="@style/TitleTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="Название курса" />
+
+                        <EditText
+                            android:id="@+id/editTextDescriptionCourse"
+                            style="@style/CustomText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:enabled="false"
+                            android:inputType="text|textMultiLine"
+                            android:text="@string/description_all_text" />
+                    </LinearLayout>
+                </eightbitlab.com.blurview.BlurView>
+
+
+                <Button
+                    android:id="@+id/authButton"
+                    style="@style/ButtonCoffeeStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="51dp"
+                    android:text="@string/auth_text"
+                    android:visibility="gone"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/blurView"
+                    app:layout_constraintVertical_bias="0.84000003"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <Button
+                    android:id="@+id/buyButton"
+                    style="@style/ButtonCoffeeStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="51dp"
+                    android:text="@string/subscribe_text"
+                    android:visibility="gone"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/blurView"
+                    app:layout_constraintVertical_bias="0.84000003"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="32dp"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewAudioCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/adapter_course_sound_item" />
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBarCourse"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_anchor="@+id/nestedScrollView"
+        app:layout_anchorGravity="top|center" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

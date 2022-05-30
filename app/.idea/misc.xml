@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Projects/DevelopmentProjects/CalendarProject/app/app/src/main/res/layout/activity_auth.xml" value="0.23731884057971014" />
+        <entry key="..\:/Projects/DevelopmentProjects/CalendarProject/app/app/src/main/res/layout/activity_home.xml" value="0.23731884057971014" />
+        <entry key="..\:/Projects/DevelopmentProjects/CalendarProject/app/app/src/main/res/layout/fragment_home.xml" value="0.23731884057971014" />
+        <entry key="..\:/Projects/DevelopmentProjects/CalendarProject/app/app/src/main/res/layout/fragment_login.xml" value="0.1793478260869565" />
+        <entry key="..\:/Projects/DevelopmentProjects/CalendarProject/app/app/src/main/res/layout/fragment_register.xml" value="0.264" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1361111111111111" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/button1.xml" value="0.21851851851851853" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_arrow_left.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_delete_profile.xml" value="0.175" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_lock.xml" value="0.113" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_logo.xml" value="0.175" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_logo_white.xml" value="0.16203703703703703" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_menu_item_2.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_menu_item_3.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_note.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_note_off.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_play.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_player_5s_next.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_player_5s_prev.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_player_next.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_player_play.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/ic_security_profile.xml" value="0.175" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/layer_list_splash_screen.xml" value="0.1115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/selector_background_tab_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/selector_background_tab_item_coffe.xml" value="0.1115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/selector_background_tab_item_start.xml" value="0.1115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/selector_text_input_material.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_bottom_navigation.xml" value="0.1925925925925926" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_buttom_navigation.xml" value="0.1925925925925926" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_empty_divider_course.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_empty_tall_divider.xml" value="0.18125" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_gradient_course.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_part_right_round.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_rect_coffee_round.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_rect_dark_round.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_rect_google_oauth.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_rect_white_round.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_right_round.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_round_button.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_tab_indicator.xml" value="0.1115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_tab_item.xml" value="0.13229166666666667" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_tab_item_black.xml" value="0.1115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_tab_item_coffee.xml" value="0.18888888888888888" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_tab_item_solid_dark.xml" value="0.1115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_tab_item_solid_white.xml" value="0.1115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/shape_tab_layout.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_button_navigation.xml" value="0.20185185185185187" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_calendar_black_item.xml" value="0.16666666666666666" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_calendar_item.xml" value="0.16666666666666666" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_circle_70.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_gradient_course.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_main_search_view.xml" value="0.18125" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_menu_item_1.xml" value="0.20185185185185187" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_search_icon.xml" value="0.18125" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_sound_info.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_tarrif_number.xml" value="0.114" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/drawable/vector_transparent_round_button.xml" value="0.1" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/font/merriweather_italic.xml" value="0.14375" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/font/pt_serif.xml" value="0.19537037037037036" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/activity_auth.xml" value="0.18229166666666666" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/activity_course.xml" value="0.1766304347826087" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/activity_main.xml" value="0.12916666666666668" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/activity_payment.xml" value="0.24365942028985507" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/activity_start.xml" value="0.13072916666666667" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/adapter_calendar_item.xml" value="0.4" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/adapter_category_high_item.xml" value="0.4" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/adapter_category_high_item_v.xml" value="0.4" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/adapter_category_item.xml" value="0.72" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/adapter_course_sound_item.xml" value="0.6" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_audio_player.xml" value="0.2885057471264368" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_blank.xml" value="0.24365942028985507" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_calendar.xml" value="0.25" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_change.xml" value="0.22192028985507245" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_change_v.xml" value="0.14479166666666668" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_child.xml" value="0.1634963768115942" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_child_v.xml" value="0.14479166666666668" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_dialog.xml" value="0.22192028985507245" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_dialog_v.xml" value="0.16510416666666666" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_linear.xml" value="0.24230072463768115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_money.xml" value="0.16510416666666666" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_money_v.xml" value="0.16510416666666666" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_note.xml" value="0.24365942028985507" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_relax.xml" value="0.2269021739130435" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_resource.xml" value="0.2269021739130435" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_resource_v.xml" value="0.14479166666666668" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_think_v.xml" value="0.14479166666666668" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_time.xml" value="0.2269021739130435" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_time_v.xml" value="0.14479166666666668" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_category_vertical.xml" value="0.24230072463768115" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_course.xml" value="0.152" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_note.xml" value="0.264" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_page_start_one.xml" value="0.23007246376811594" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_page_start_three.xml" value="0.23007246376811594" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_page_start_two.xml" value="0.23007246376811594" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_payment.xml" value="0.264" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_payment_subscribe.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_profile_container.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_register.xml" value="0.264" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_start.xml" value="0.13072916666666667" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_tariff_month.xml" value="0.4" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_tariff_week.xml" value="0.24365942028985507" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_tariff_year.xml" value="0.24365942028985507" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/fragment_tarrif_year.xml" value="0.24365942028985507" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/layout_custom_snackbar_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/layout_header_app.xml" value="0.23007246376811594" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/layout_notification.xml" value="0.536" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/layout/layout_snackbar_error.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/menu/menu_buttom_navigation.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/menu/menu_button_navigation.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/menu/menu_toolbar_course.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18385416666666668" />
+        <entry key="..\:/Projects/DevelopmentProjects/psychology-app/app/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/DNS/.gradle/caches/transforms-3/a089ef95b86d74ce3a1e6bb939f3d74b/transformed/appcompat-1.4.0/res/drawable/abc_btn_default_mtrl_shape.xml" value="0.1" />
+        <entry key="..\:/Users/DNS/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/auto_complete_list.xml" value="0.11302083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

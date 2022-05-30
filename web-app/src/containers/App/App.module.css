@@ -1,0 +1,6 @@
+.container{
+    display: grid;
+    grid-template-areas: 
+    "n c";
+    grid-template-columns: 140px 2fr;
+}

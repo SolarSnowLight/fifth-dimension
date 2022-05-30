@@ -1,0 +1,255 @@
+.container {
+  grid-area: c;
+  margin-left: 5%;
+  margin-top: 2%;
+}
+
+.info {
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  margin-bottom: 36px;
+}
+
+.item {
+  margin-left: 16px;
+}
+
+.categories {
+
+  font-size: var(--fs-h2);
+}
+
+.subcategories {
+  font-size: var(--fs-h2);
+  margin-top: 16px;
+}
+
+.categories-select {
+
+  margin-top: 8px;
+  width: 220px;
+  font-size: var(--fs-b);
+}
+
+
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+.checkbox {
+  margin-top: 8px;
+  display: flex;
+  position: relative;
+}
+
+.checkbox label {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--white);
+  border: 1px solid var(--middle-coffee);
+}
+
+.checkbox label:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  background: transparent;
+  top: 4px;
+  left: 4px;
+  border: 2px solid var(--dark-brown-1);
+  border-top: none;
+  border-right: none;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+
+.checkbox input[type=checkbox]:checked+label:after {
+  opacity: 1;
+}
+
+.check {
+  font-size: var(--fs-h2);
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+}
+
+.checkbox_2 {
+  margin-top: 8px;
+  display: flex;
+  position: relative;
+}
+
+.checkbox_2 label {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--white);
+  border: 1px solid var(--middle-coffee);
+}
+
+.checkbox_2 label:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  background: transparent;
+  top: 4px;
+  left: 4px;
+  border: 2px solid var(--dark-brown-1);
+  border-top: none;
+  border-right: none;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+
+.checkbox_2 input[type=checkbox]:checked+label:after {
+  opacity: 1;
+}
+
+.name_container {
+  font-size: var(--fs-h2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--ff);
+}
+
+.name_field {
+  width: 220px;
+  margin-top: 18px;
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #b19472;
+  background: transparent;
+}
+
+.about_container {
+  margin-top: 16px;
+  font-size: var(--fs-h2);
+  width: 244px;
+}
+
+.name_field_about {
+  margin-top: 8px;
+  width: 232px !important;
+  height: 144px;
+  resize: none;
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  background: transparent;
+  border: 2px solid #b19472;
+  outline: none;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.name_container_img {
+  margin-left: 16px;
+  font-size: var(--fs-h2);
+  width: 220px;
+}
+
+.file-upload-input {
+  margin-top: 16px;
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+.upload_image_wrapper {
+  width: 220px;
+  height: 142px;
+  margin-top: 8px;
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  border: 2px dashed var(--middle-coffee);
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.upload_image_wrapper_del {
+  width: 220px;
+  margin-top: 8px;
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  border: none;
+  border-radius: 4px;
+  padding: 7px 1px;
+  background-color: #b19472;
+}
+
+.upload_image {
+  width: 220px;
+  height: 142px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.lessons {
+  margin-bottom: 16px;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+}
+
+.btns {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-add {
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  padding: 7px 10px;
+  border-radius: 4px;
+  width: 150px;
+  height: 41px;
+  background-color: inherit;
+  color: var(--dark-brown-1);
+  border: var(--middle-coffee) solid 2px !important;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+
+.btn-create {
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  padding: 7px 10px;
+  border-radius: 4px;
+  width: 150px;
+  height: 41px;
+  background-color: var(--middle-coffee);
+  color: var(--dark-brown-1);
+  border: var(--middle-coffee) solid 2px !important;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

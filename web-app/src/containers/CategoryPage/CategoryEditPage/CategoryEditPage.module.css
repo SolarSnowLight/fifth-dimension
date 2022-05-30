@@ -1,0 +1,20 @@
+.item {
+    display: inline-flex;
+    grid-gap: 16px;
+}
+
+.sub-item-container {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.category-create-link {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.btn-save{
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+}

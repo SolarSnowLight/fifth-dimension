@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:background="@color/bg_color">
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/circularProgressBar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:visibility="invisible"
+        app:cpb_background_progressbar_color="@color/white"
+        app:cpb_background_progressbar_width="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+        app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+        app:layout_constraintStart_toStartOf="@+id/circleImageView"
+        app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAdapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:orientation="vertical"
+        android:divider="@drawable/shape_empty_divider_course"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+        app:layout_constraintStart_toEndOf="@+id/circleImageView"
+        app:layout_constraintTop_toTopOf="@+id/circleImageView">
+
+        <TextView
+            android:id="@+id/textViewLesson"
+            style="@style/CustomLowText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lesson_one_text" />
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            style="@style/CustomText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meet_text" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewDuration"
+        style="@style/CustomTextDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time_text"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/linearLayoutAdapter"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/buttonSound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+        app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+        app:layout_constraintStart_toStartOf="@+id/circleImageView"
+        app:layout_constraintTop_toTopOf="@+id/circleImageView"
+        app:srcCompat="@drawable/ic_play" />
+
+    <ProgressBar
+        android:id="@+id/progressBarSound"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+        app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+        app:layout_constraintStart_toStartOf="@+id/circleImageView"
+        app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

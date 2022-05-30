@@ -1,0 +1,24 @@
+.container{
+    grid-area: h;
+    width: 100%;
+    z-index: 100;
+}
+.content{
+    align-items: center;
+    justify-content: center;
+}
+.img{
+    width: 3em;
+    margin-left: 48.5%;
+}
+.system-out{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: var(--fs-b);
+    border: 2px  #CCCCCC solid;
+    border-radius: 4px;
+    padding: 7px 10px;
+    background-color: var(--white);
+    float: right;
+    margin: 8px 16px;
+
+}

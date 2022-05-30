@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutAudio"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".containers.course.fragments.AudioPlayerFragment">
+
+    <ImageView
+        android:id="@+id/imageViewBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_left" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewPlay"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slider"
+        app:layout_constraintVertical_bias="0.64">
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurViewPlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imageButtonPlay"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_play"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </eightbitlab.com.blurview.BlurView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewNext5"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewPlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardViewPlay"
+        app:layout_constraintTop_toTopOf="@+id/cardViewPlay">
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurViewNext5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imageButtonNext5"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_player_5s_next"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </eightbitlab.com.blurview.BlurView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewPrev5"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewPlay"
+        app:layout_constraintEnd_toStartOf="@+id/cardViewPlay"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardViewPlay">
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurViewPrev5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imageButtonPrev5"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_player_5s_prev"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </eightbitlab.com.blurview.BlurView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewPrev"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewPrev5"
+        app:layout_constraintEnd_toStartOf="@+id/cardViewPrev5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardViewPrev5">
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurViewPrev"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imageButtonPrev"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_player_prev"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </eightbitlab.com.blurview.BlurView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewNext"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewNext5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cardViewNext5"
+        app:layout_constraintTop_toTopOf="@+id/cardViewNext5">
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurViewNext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imageButtonNext"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_player_next"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </eightbitlab.com.blurview.BlurView>
+    </androidx.cardview.widget.CardView>
+
+    <SeekBar
+        android:id="@+id/slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="256dp"
+        app:labelBehavior="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/shape_part_right_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewLessonNum"
+                    style="@style/CustomText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lesson_one_text" />
+
+                <TextView
+                    android:id="@+id/textViewTitle"
+                    style="@style/TitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/meet_text" />
+
+                <TextView
+                    android:id="@+id/textViewDescription"
+                    style="@style/CustomText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/meet_text" />
+            </LinearLayout>
+        </eightbitlab.com.blurview.BlurView>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBarAudio"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

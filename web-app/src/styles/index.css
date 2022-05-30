@@ -1,0 +1,110 @@
+:root{
+  --dark-brown-1: #181511;
+  --dark-brown-2: #3B2F23;
+  --middle-coffee: #B19472;
+  --light-coffee: #E6D5B7;
+  --white: #FEFEF9;
+  --mirror: rgba(230, 213, 183, 0.25);
+
+  --cards-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+
+  --ff: TNR;  
+
+  --fs-b: 16px;
+  --fs-h2: 18px;
+  --fs-h1: 20px;
+
+}
+
+@font-face {
+  font-family: "TNR";
+  src: url("../resources/TNR.ttf") format("truetype");
+}
+
+body {
+  font-family: "TNR" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white);
+  font-size: 16px !important;
+}
+
+.main-btn{
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: var(--middle-coffee);
+  color: var(--white);
+  border: none;
+  outline: none;
+}
+
+.secondary-btn{
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: inherit;
+  color: var(--dark-brown-1);
+  border: 1px solid var(--middle-coffee);
+  outline: 1px solid var(--middle-coffee);
+}
+
+.mirror{
+  background-color:var(--mirror) ;
+  border-radius: 8px;
+}
+
+.field-input-cross{
+  width: 276px;
+  font-size: var(--fs-b);
+  font-family: var(--ff);
+  border: 1px solid var(--middle-coffee);
+  outline: 1px solid var(--middle-coffee);
+  border-radius: 4px;
+  padding: 8px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.input-with-cross{
+  font-size: var(--fs-b);
+  font-family: var(--ff);
+  border: none;
+  outline: none;
+}
+
+.btn-add{
+  font-family: var(--ff);
+  font-size: var(--fs-b);
+  width: 293px;
+  background-color: var(--middle-coffee);
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: var(--white);
+  padding: 8px 16px;
+}
+
+.line{
+  border-left: 1px solid var(--middle-coffee);
+  height:40px;
+
+}
+
+.btn-add-small{
+  background-color: inherit;
+  outline: none;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: var(--ff);
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+

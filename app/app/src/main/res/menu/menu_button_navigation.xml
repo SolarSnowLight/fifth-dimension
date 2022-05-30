@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemBrowserMenu"
+        android:icon="@drawable/ic_menu_item_1"
+        android:enabled="true"
+        android:title="@string/point_text"
+    />
+
+    <item
+        android:id="@+id/itemNoteMenu"
+        android:icon="@drawable/ic_menu_item_2"
+        android:enabled="true"
+        android:title="@string/point_text"
+    />
+
+    <item
+        android:id="@+id/itemCalendarMenu"
+        android:icon="@drawable/ic_menu_item_3"
+        android:enabled="true"
+        android:title="@string/point_text"
+    />
+
+    <item
+        android:id="@+id/itemProfileMenu"
+        android:icon="@drawable/ic_menu_item_4"
+        android:enabled="true"
+        android:title="@string/point_text"
+    />
+</menu>

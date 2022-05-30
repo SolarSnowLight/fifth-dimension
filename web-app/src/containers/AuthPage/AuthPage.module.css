@@ -1,0 +1,79 @@
+.container {
+    background-image: url("../../resources/images/main/auth_bac.png") !important ;;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--dark-brown-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form{
+    background-color: var(--mirror);
+    backdrop-filter: blur(24px);
+    padding: 16px;
+    border-radius: 24px;
+    width: 343px;
+
+  }
+
+  .entrance-txt{
+    font-size: 24px;
+  }
+
+  .container-mail{
+    margin-top: 36px;
+  }
+
+.btn{
+  margin-top: 12px;
+}
+.input-mail{
+  margin-top: 2%;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background-color: var(--dark-brown-2) !important;
+  color: var(--white);
+  border: none;
+  width: 90%;
+}
+.input-pass{
+  margin-top: 2%;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background-color: rgba(230, 213, 183, 0.5) !important;
+  backdrop-filter: blur(16px);
+  color: var(--white);
+  border: none !important;
+  width: 90%;
+}
+.btn-enter{
+  margin-top: 24px;
+  font-size: 16px;
+  padding: 11.5px 16px;
+  border-radius: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: var(--dark-brown-2);
+  color: var(--white);
+  border: none;
+  width: 100%;
+}
+.btn-google{
+  background-color: #FFFFFF;
+  font-size: 16px !important;
+  padding: 0px 16px !important;
+  border-radius: 30px  !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  border: none;
+  width: 100%;
+  color: var(--dark-brown-1) !important;
+  opacity: 1 !important;
+}

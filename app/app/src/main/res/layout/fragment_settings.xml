@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_black"
+    tools:context=".containers.home.fragments.profile.fragments.SettingsFragment">
+
+    <com.game.app.components.HideKeyboardScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                android:minHeight="?attr/actionBarSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/ic_arrow_left" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <TextView
+                    android:id="@+id/textViewTitleRegister"
+                    style="@style/TitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/text_settings"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="329dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/pt_serif"
+                        android:text="@string/name_text"
+                        android:textColor="@color/white_text_color" />
+
+                    <EditText
+                        android:id="@+id/editTextName"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:autofillHints="@string/name_text"
+                        android:ems="10"
+                        android:hint="@string/name_text"
+                        android:inputType="textPersonName"
+                        android:minHeight="48dp"
+                        android:background="@drawable/shape_rect_white_round"
+                        android:fontFamily="@font/pt_serif"
+                        android:textColor="@color/black"
+                        android:textColorHint="#757575" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/pt_serif"
+                        android:text="@string/surname_text"
+                        android:textColor="@color/white_text_color" />
+
+                    <EditText
+                        android:id="@+id/editTextSurname"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:autofillHints="@string/surname_text"
+                        android:background="@drawable/shape_rect_white_round"
+                        android:ems="10"
+                        android:fontFamily="@font/pt_serif"
+                        android:hint="@string/surname_text"
+                        android:inputType="textPersonName"
+                        android:minHeight="48dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="#757575" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/pt_serif"
+                        android:text="@string/mail_text"
+                        android:textColor="@color/white_text_color" />
+
+                    <EditText
+                        android:id="@+id/editTextEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:autofillHints="@string/email_text"
+                        android:background="@drawable/shape_rect_white_round"
+                        android:ems="10"
+                        android:fontFamily="@font/pt_serif"
+                        android:hint="@string/email_text"
+                        android:inputType="textEmailAddress"
+                        android:minHeight="48dp"
+                        android:enabled="false"
+                        android:textColor="@color/black"
+                        android:textColorHint="#757575" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/pt_serif"
+                        android:text="@string/password_text"
+                        android:textColor="@color/white_text_color" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:endIconMode="password_toggle"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:autofillHints="@string/password_text"
+                            android:background="@drawable/shape_rect_dark_round"
+                            android:ems="10"
+                            android:fontFamily="@font/pt_serif"
+                            android:hint="@string/password_text"
+                            android:inputType="textPassword"
+                            android:minHeight="48dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="#757575"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/retryPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/pt_serif"
+                        android:text="@string/text_retry_password"
+                        android:textColor="@color/white_text_color"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutRetry"
+                        style="@style/TextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:endIconMode="password_toggle"
+                        android:visibility="gone"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextRetryPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:autofillHints="@string/password_text"
+                            android:background="@drawable/shape_rect_dark_round"
+                            android:ems="10"
+                            android:fontFamily="@font/pt_serif"
+                            android:hint="@string/password_text"
+                            android:inputType="textPassword"
+                            android:minHeight="48dp"
+                            android:textColor="@color/color_black"
+                            android:textColorHint="#757575"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/buttonSave"
+                        style="@style/ButtonCoffeeStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="32dp"
+                        android:text="@string/text_save"
+                        tools:ignore="DuplicateSpeakableTextCheck" />
+                </LinearLayout>
+
+                <!-- Пустой View для увеличения области скролла -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.game.app.components.HideKeyboardScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
