@@ -1,3 +1,6 @@
+
+
+# Важные пути игнорирования, не удалять!
 /main-server/.development.env
 /main-server/.production.env
 ./main-server/.development.env
