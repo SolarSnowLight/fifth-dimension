@@ -1,6 +1,3 @@
-main-server
-/main-server
-mainserver/
 /main-server/.development.env
 /main-server/.production.env
 ./main-server/.development.env
