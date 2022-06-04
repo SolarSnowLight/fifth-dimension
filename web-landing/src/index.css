@@ -1,0 +1,59 @@
+:root {
+  --dark-brown-1: #181511;
+  --dark-brown-2: #3B2F23;
+  --middle-coffee: #B19472;
+  --light-coffee: #E6D5B7;
+  --white: #FEFEF9;
+  --mirror: rgba(230, 213, 183, 0.25);
+
+  --cards-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+
+  --ff: TNR;  
+
+  --fs-b: 16px;
+  --fs-h1: 24px;
+
+}
+
+@font-face {
+  font-family: "TNR";
+  src: url("./resources/TNR.ttf") format("truetype");
+}
+
+
+body {
+  margin: 0;
+  color: var(--dark-brown-1);
+  background-color: var(--white);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-family: "TNR";
+  font-style: bold;
+}
+
+h2{
+  font-size: var(--fs-b);
+  font-family: "TNR";
+  font-weight: 100;
+}
+
+@media (max-width: 428px) {
+  .content {
+
+
+  }
+}
+
+@media (min-width: 768px) {
+  .content {
+    width: 100%;
+
+
+  }
+}
+
+@media (min-width: 1400px) {
+  
+}
