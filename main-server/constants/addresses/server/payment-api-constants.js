@@ -1,6 +1,6 @@
 
 const PaymentApiConstants = {
-    main: '/payment',
+    main: '/api/payment',
 
     payment_token: '/token',
 }

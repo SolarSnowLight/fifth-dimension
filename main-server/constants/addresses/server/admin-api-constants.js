@@ -1,6 +1,6 @@
 
 const AdminApiConstants = {
-    main: '/admin',
+    main: '/api/admin',
 
     create_course: '/create/course',
     delete_course: '/delete/course',

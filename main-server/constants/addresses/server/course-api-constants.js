@@ -1,6 +1,6 @@
 
 const CourseApiConstants = {
-    main: '/course',
+    main: '/api/course',
 
     get_all_title: '/get/all/title',
     get_all_title_deleted: '/get/all/title/deleted',

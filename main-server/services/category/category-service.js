@@ -1,7 +1,9 @@
 
 const {
     CategoriesModel, SubcategoriesModel,
-    CategoriesSubcategoriesModel, sequelize, CoursesCategoriesModel, CoursesModel, CoursesSoundsModel, SoundsModel
+    CategoriesSubcategoriesModel, sequelize, 
+    CoursesCategoriesModel, CoursesModel, CoursesSoundsModel, SoundsModel,
+    DeletedCourses
 } = require('../../data/index');
 const ApiError = require('../../exceptions/api-error');
 const fs = require("fs");
@@ -197,6 +199,14 @@ class CategoryService {
                     transaction: transaction
                 });
             }
+
+            await DeletedCourses.destroy({
+                where: {
+                    courses_id: course.id
+                }
+            }, {
+                transaction: transaction
+            });
 
             await CoursesSoundsModel.destroy({
                 where: {
@@ -437,7 +447,6 @@ class CategoryService {
         } catch (e) {
             await t.rollback();
             ApiError.BadRequest(e);
-            console.log(e);
         }
 
         return false;

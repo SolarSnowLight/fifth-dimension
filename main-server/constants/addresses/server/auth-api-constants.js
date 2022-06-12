@@ -1,6 +1,6 @@
 
 const AuthApiConstants = {
-    main: '/auth',
+    main: '/api/auth',
 
     register: '/register',
     login: '/login',

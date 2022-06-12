@@ -12,79 +12,88 @@ const ApiError = require('../../exceptions/api-error');
 const {
     UsersModel, UsersDataModel, 
     ActivationsModel, TypeAuthModel,
+    sequelize
 } = require('../../data/index');
 
 class AuthService {
     // Регистрация пользователя
     async registration(email, password, name, surname){
-        const candidat = await UsersModel.findOne({
-            where: {
-                email: email
-            }
-        });
+        const t = await sequelize.transaction();
 
-        if(candidat){
-            throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`);
-        }
-
-        // Хэширование пароля
-        const hashPassword = await bcrypt.hash(password, 12);
-
-        // Генерация ссылки активации аккаунта
-        const activationLink = uuid.v4();
-
-        // Создание нового пользователя
-        const user = await UsersModel.create({
-            email: email,
-            password: hashPassword,
-            uuid: uuid.v4()
-        });
-
-        // Добавление роли пользователю
-        const modules = await roleService.setRole(user.id, RoleValueConstants.user);
-
-        // Добавление информации о пользователе
-        await UsersDataModel.create({
-            users_id: user.id,
-            name: name,
-            surname: surname,
-            date_register: (new Date()).toISOString().slice(0, 10)
-        });
-
-        await TypeAuthModel.create({
-            users_id: user.id,
-            type: 0
-        });
-
-        await ActivationsModel.create({
-            users_id: user.id,
-            activation_link: activationLink,
-            is_activated: false
-        });
-
-        // Отправка сообщения на почту пользователя для активации аккаунта
-        await mailService.sendActivationMail(email, `${process.env.API_URL}/auth/activate/${activationLink}`);
-
-        const tokens = tokenServiceJWT.generateTokens({
-            users_id: user.uuid
-        });
+        try{
+            const candidat = await UsersModel.findOne({
+                where: {
+                    email: email
+                }
+            });
     
-        await tokenService.saveTokens(user.id, tokens.accessToken, tokens.refreshToken);
+            if(candidat){
+                throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`);
+            }
+    
+            // Хэширование пароля
+            const hashPassword = await bcrypt.hash(password, 12);
+    
+            // Генерация ссылки активации аккаунта
+            const activationLink = uuid.v4();
+    
+            // Создание нового пользователя
+            const user = await UsersModel.create({
+                email: email,
+                password: hashPassword,
+                uuid: uuid.v4()
+            });
+    
+            // Добавление роли пользователю
+            const modules = await roleService.setRole(user.id, RoleValueConstants.user);
+    
+            // Добавление информации о пользователе
+            await UsersDataModel.create({
+                users_id: user.id,
+                name: name,
+                surname: surname,
+                date_register: (new Date()).toISOString().slice(0, 10)
+            }, { transaction: t });
+    
+            await TypeAuthModel.create({
+                users_id: user.id,
+                type: 0
+            }, { transaction: t });
+    
+            await ActivationsModel.create({
+                users_id: user.id,
+                activation_link: activationLink,
+                is_activated: false
+            }, { transaction: t });
+    
+            // Отправка сообщения на почту пользователя для активации аккаунта
+            await mailService.sendActivationMail(email, `${process.env.API_URL}/api/auth/activate/${activationLink}`);
 
-        return {
-            tokens: {
-                access_token: tokens.accessToken,
-                refresh_token: tokens.refreshToken
-            },
-            /*modules: {
-                user: modules.user,
-                admin: modules.admin,
-                dev: modules.dev
-            },*/
-            roles_id: modules.roles_id,
-            users_id: user.uuid,
-            type_auth: 0
-        };
+            await t.commit();
+
+            const tokens = tokenServiceJWT.generateTokens({
+                users_id: user.uuid
+            });
+        
+            await tokenService.saveTokens(user.id, tokens.accessToken, tokens.refreshToken);
+
+            return {
+                tokens: {
+                    access_token: tokens.accessToken,
+                    refresh_token: tokens.refreshToken
+                },
+                /*modules: {
+                    user: modules.user,
+                    admin: modules.admin,
+                    dev: modules.dev
+                },*/
+                roles_id: modules.roles_id,
+                users_id: user.uuid,
+                type_auth: 0
+            };
+        }catch(e) {
+            await t.rollback();
+        }
     }
 
     // Авторизация пользователя

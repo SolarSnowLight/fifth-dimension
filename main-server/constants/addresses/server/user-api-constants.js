@@ -1,6 +1,6 @@
 
 const UserApiConstants = {
-    main: '/user',
+    main: '/api/user',
 
     get_info: '/info',
     get_all_title: '/get/all/title',

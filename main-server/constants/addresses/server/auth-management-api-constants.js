@@ -1,6 +1,6 @@
 
 const AuthManagementApiConstants = {
-    main: '/auth/management',
+    main: '/api/auth/management',
 
     login: '/login',
     logout: '/logout',
