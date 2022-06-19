@@ -1,5 +1,5 @@
 
-const main = "/admin";
+const main = "/api/admin";
 
 const AdminApiConstants = {
     create_course: `${main}/create/course`,

@@ -184,11 +184,11 @@ const ViewLesson = (props) => {
             <AudioElement
               audioUrl={
                 `${MainApiConstants.main_server}/data/files/${itemSound.file_sound_path.split('\\')[2]}`
-                // `${MainApiConstants.main_server}/${itemSound.file_sound_path}`
+                //`${MainApiConstants.main_server}/${itemSound.file_sound_path}`
               }
               audioImageUrl={
                 `url(${MainApiConstants.main_server}/data/files/${itemSound.title_img_path.split('\\')[2]})`
-                // `url(${MainApiConstants.main_server}/${itemSound.title_img_path})`
+                //`url(${MainApiConstants.main_server}/${itemSound.title_img_path})`
               }
               audioTitle={itemSound.title}
               audioType={itemSound.type}
