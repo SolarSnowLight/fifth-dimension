@@ -1,17 +1,20 @@
 import React from "react";
-import styles from "./App.module.css";
-import {BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+
+import useRoutes from "../../routes";
 import PrivacyPolicy from "../PrivacyPolicy";
 import Content from "../Content";
 
-const App = () => {
-  
-  return (
-    <BrowserRouter>   
-    <Content/>
-  </BrowserRouter>
+import styles from "./App.module.css";
 
-  );
+const App = () => {
+  const routes = useRoutes();
+
+  return(
+    <BrowserRouter>
+    {routes}
+    </BrowserRouter>
+  )
 };
 
 export default App;
