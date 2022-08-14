@@ -75,8 +75,11 @@ const start = async() => {
 
 start();
 
-// Performing the operation every 1 hour
+/* Обновление статуса курсов каждый час */
 const job = schedule.scheduleJob('*/3600 * * * * *', courseService.CourseUpdateStatus);
+
+/* Нужно реализовать обновление статуса подписок каждого пользователя (раз в день) */
+// const job = schedule.scheduleJob('*/3600 * * * * *', /* Функция обновления статуса подписок */);
 
 process.on('SIGINT', function () { 
     schedule.gracefulShutdown()

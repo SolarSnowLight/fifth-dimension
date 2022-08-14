@@ -235,6 +235,10 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding, UserReposi
                     CategoryModel::class.java
                 )
 
+                if(categoryData.categories.isEmpty()){
+                    return@observe
+                }
+
                 viewModel.getCoursesByTitle(categoryData.categories.first().title.toString())
 
                 val fragments = ArrayMap<Int, BaseFragment<*, *, *>>()

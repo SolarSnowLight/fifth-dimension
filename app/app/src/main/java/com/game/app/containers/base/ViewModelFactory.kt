@@ -7,9 +7,11 @@ import com.game.app.containers.home.fragments.home.models.CourseViewModel
 import com.game.app.containers.home.models.CalendarViewModel
 import com.game.app.containers.home.models.HomeViewModel
 import com.game.app.containers.home.models.ProfileViewModel
+import com.game.app.containers.payment.models.PaymentViewModel
 import com.game.app.repositories.AuthRepository
 import com.game.app.repositories.BaseRepository
 import com.game.app.repositories.UserRepository
+import com.yandex.metrica.profile.UserProfile
 import java.lang.IllegalArgumentException
 
 /*
@@ -28,6 +30,7 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(CalendarViewModel::class.java) -> CalendarViewModel(repository as UserRepository) as T
             modelClass.isAssignableFrom(CourseViewModel::class.java) -> CourseViewModel(repository as UserRepository) as T
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> ProfileViewModel(repository as UserRepository) as T
+            modelClass.isAssignableFrom(PaymentViewModel::class.java) -> PaymentViewModel(repository as UserRepository) as T
             modelClass.isAssignableFrom(
                 com.game.app.containers.course.models.CourseViewModel::class.java
             ) -> com.game.app.containers.course.models.CourseViewModel(repository as UserRepository) as T

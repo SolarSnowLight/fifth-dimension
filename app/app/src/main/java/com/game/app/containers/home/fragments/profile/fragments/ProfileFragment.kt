@@ -68,6 +68,12 @@ class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileBinding, U
             )
         }
 
+        binding.policyButton.setOnClickListener{
+            navigation(
+                R.id.action_profileFragment2_to_policyFragment
+            )
+        }
+
         binding.switchNotification.isChecked = Gson().fromJson(
             runBlocking {
                 notificationPreferences.notification.first()

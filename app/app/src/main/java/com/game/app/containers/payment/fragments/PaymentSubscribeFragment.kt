@@ -10,23 +10,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.game.app.R
 import com.game.app.containers.base.BaseFragment
 import com.game.app.containers.home.models.HomeViewModel
 import com.game.app.containers.payment.PaymentActivity
 import com.game.app.containers.payment.adapters.SwitchTariffFragmentAdapter
+import com.game.app.containers.payment.models.PaymentViewModel
 import com.game.app.data.UserPreferences
 import com.game.app.databinding.FragmentPaymentBinding
 import com.game.app.databinding.FragmentPaymentSubscribeBinding
 import com.game.app.models.payment.PaymentTokenModel
 import com.game.app.network.RemoteDataSource
+import com.game.app.network.Resource
 import com.game.app.network.apis.UserApi
 import com.game.app.repositories.UserRepository
+import com.game.app.utils.handleApiError
 import com.game.app.utils.navigation
 import com.game.app.utils.setMarginTop
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
+import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -38,7 +43,7 @@ import ru.yoomoney.sdk.kassa.payments.ui.color.ColorScheme
 import java.math.BigDecimal
 import java.util.*
 
-class PaymentSubscribeFragment : BaseFragment<HomeViewModel, FragmentPaymentSubscribeBinding, UserRepository>() {
+class PaymentSubscribeFragment : BaseFragment<PaymentViewModel, FragmentPaymentSubscribeBinding, UserRepository>() {
     companion object {
         private const val REQUEST_CODE_TOKENIZE = 1
     }
@@ -61,9 +66,25 @@ class PaymentSubscribeFragment : BaseFragment<HomeViewModel, FragmentPaymentSubs
         }
 
         onTokenizeButtonCLick()
+
+        viewModel.paymentToken.observe(viewLifecycleOwner){
+            when(it){
+                is Resource.Success -> {
+                    if(it.value.isSuccessful){
+                        lifecycleScope.launch {
+                            Log.i("MYTAG", it.value.body().toString())
+                        }
+                    }else{
+                        //handleMessage(Gson().fromJson(it.value.errorBody()?.string().toString(), ErrorModel::class.java).message!!)
+                    }
+                }
+                is Resource.Failure -> {}
+                else -> {}
+            }
+        }
     }
 
-    override fun getViewModel() = HomeViewModel::class.java
+    override fun getViewModel() = PaymentViewModel::class.java
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -71,7 +92,7 @@ class PaymentSubscribeFragment : BaseFragment<HomeViewModel, FragmentPaymentSubs
     ) = FragmentPaymentSubscribeBinding.inflate(inflater, container, false)
 
     override fun getFragmentRepository() : UserRepository {
-        return UserRepository(remoteDataSource.buildApi(UserApi::class.java, userPreferences, false))
+        return UserRepository(remoteDataSource.buildApi(UserApi::class.java, userPreferences, true))
     }
 
     @Deprecated("Deprecated in Java")
@@ -93,8 +114,7 @@ class PaymentSubscribeFragment : BaseFragment<HomeViewModel, FragmentPaymentSubs
 
     private fun onTokenizeButtonCLick() {
         val paymentMethodTypes = setOf(
-            PaymentMethodType.BANK_CARD,
-            PaymentMethodType.SBERBANK
+            PaymentMethodType.BANK_CARD
         )
 
         val paymentParameters = PaymentParameters(
@@ -109,11 +129,11 @@ class PaymentSubscribeFragment : BaseFragment<HomeViewModel, FragmentPaymentSubs
             savePaymentMethod = SavePaymentMethod.OFF,
             // the full list of available payment methods has been provided
             paymentMethodTypes = setOf(
-                PaymentMethodType.BANK_CARD,
-                PaymentMethodType.SBERBANK
+                PaymentMethodType.BANK_CARD
             ),
             // url of the page (only https is supported) that the user should be returned to after completing 3ds.
-            customReturnUrl = "https://custom.redirect.url",
+            // customReturnUrl = "https://custom.redirect.url",
+
             // user's phone number for autofilling the user phone number field in SberPay. Supported data format: "+7XXXXXXXXXX"
             // userPhoneNumber = "+79041234567",
             // ID received upon registering the app on the https://yookassa.ru website
@@ -139,7 +159,8 @@ class PaymentSubscribeFragment : BaseFragment<HomeViewModel, FragmentPaymentSubs
         if (data != null) {
             val token = Checkout.createTokenizationResult(data).paymentToken
 
-            Log.i("MYTAG", token)
+            viewModel.uploadPaymentToken(token)
+
             /*CoroutineScope(Dispatchers.IO).launch {
                 var paymentToken = Gson().toJson(
                     PaymentTokenModel(

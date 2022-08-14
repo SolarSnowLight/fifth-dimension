@@ -6,6 +6,10 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true
         },
+        is_active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
         date_activation: {
             type: DataTypes.DATE,
             allowNull: false

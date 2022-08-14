@@ -12,7 +12,9 @@ const UserApiConstants = {
     completetion_sound: '/complete/sound',
     get_new_courses: '/get/new/courses',
     check_subscribe: '/check/subscribe',
-    update_info: '/info/update'
+    update_info: '/info/update',
+
+    download_app: '/download/app'
 }
 
 module.exports = UserApiConstants;

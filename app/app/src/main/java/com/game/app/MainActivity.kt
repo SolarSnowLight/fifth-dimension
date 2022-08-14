@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         val workRequest = PeriodicWorkRequest.Builder(
             UpdateContentWork::class.java,
-            6,
+            12,
             TimeUnit.HOURS
         ).setConstraints(constraints)
             .build()

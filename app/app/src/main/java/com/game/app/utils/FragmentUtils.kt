@@ -55,14 +55,14 @@ fun Fragment.handleMessage(
 fun Fragment.handleErrorMessage(
     message: String
 ){
-    CustomSnackBar.make(this.requireView(), message, Snackbar.LENGTH_LONG,null,
+    CustomSnackBar.make(this.requireView(), message, Snackbar.LENGTH_SHORT,null,
         R.drawable.ic_error_polygon,null, ContextCompat.getColor(requireContext(), R.color.red_color))?.show()
 }
 
 fun Fragment.handleWarningMessage(
     message: String
 ){
-    CustomSnackBar.make(this.requireView(), message, Snackbar.LENGTH_LONG,null,
+    CustomSnackBar.make(this.requireView(), message, Snackbar.LENGTH_SHORT,null,
         R.drawable.ic_warning_polygon,null, ContextCompat.getColor(requireContext(), R.color.warning_color))?.show()
 }
 

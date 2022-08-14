@@ -23,7 +23,7 @@ fun View.enable(enabled: Boolean){
 
 // Вызов снэкбара для каждого элемента являющегося дочерним классу View
 fun View.snackbar(message: String, action: (() -> Unit)? = null){
-    val snack = Snackbar.make(this, message, Snackbar.LENGTH_LONG)
+    val snack = Snackbar.make(this, message, Snackbar.LENGTH_SHORT)
 
     action?.let {
         snack.setAction("RETRY"){

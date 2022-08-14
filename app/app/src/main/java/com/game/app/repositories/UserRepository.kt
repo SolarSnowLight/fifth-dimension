@@ -137,4 +137,8 @@ class UserRepository(
 
         api.paymentToken(requestBody)
     }
+
+    suspend fun getPaymentTariffs() = safeApiCall {
+        api.getPaymentTariff()
+    }
 }

@@ -98,7 +98,10 @@ class AudioPlayerFragment : BaseFragment<CourseViewModel, FragmentAudioPlayerBin
         binding.toolbar.setMarginTop(128)
 
         binding.toolbar.setNavigationOnClickListener {
-            navigation(R.id.action_audioPlayerFragment_to_courseFragment)
+            val bundle = Bundle()
+            bundle.putBoolean("auth_check", false)
+
+            navigation(R.id.action_audioPlayerFragment_to_courseFragment, bundle)
         }
 
         val imageView = ImageView(context)

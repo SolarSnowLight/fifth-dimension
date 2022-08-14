@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_profileFragment2_to_settingsFragment2"
             app:destination="@id/settingsFragment2" />
+        <action
+            android:id="@+id/action_profileFragment2_to_policyFragment"
+            app:destination="@id/policyFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment2"
@@ -21,6 +24,14 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment2_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/policyFragment"
+        android:name="com.game.app.containers.home.fragments.profile.fragments.PolicyFragment"
+        android:label="PolicyFragment" >
+        <action
+            android:id="@+id/action_policyFragment_to_profileFragment2"
             app:destination="@id/profileFragment2" />
     </fragment>
 </navigation>

@@ -2,7 +2,12 @@
 const PaymentApiConstants = {
     main: '/api/payment',
 
-    payment_token: '/token',
+    tarrif_get: '/tariff/get',
+    
+    token: '/token',
+    success: '/success',
+
+    create: '/create',
 }
 
 module.exports = PaymentApiConstants;

@@ -63,14 +63,14 @@ fun Activity.handleMessage(
     root: View,
     message: String
 ){
-    Snackbar.make(root, message, Snackbar.LENGTH_LONG).show()
+    Snackbar.make(root, message, Snackbar.LENGTH_SHORT).show()
 }
 
 fun Activity.handleErrorMessage(
     root: View,
     message: String
 ){
-    CustomSnackBar.make(root.parent as ViewGroup,message,Snackbar.LENGTH_LONG,null,
+    CustomSnackBar.make(root.parent as ViewGroup,message,Snackbar.LENGTH_SHORT,null,
         R.drawable.ic_error_polygon,null, ContextCompat.getColor(this, R.color.red_color))?.show()
 }
 
@@ -78,7 +78,7 @@ fun Activity.handleWarningMessage(
     root: View,
     message: String
 ){
-    CustomSnackBar.make(root.parent as ViewGroup,message,Snackbar.LENGTH_LONG,null,
+    CustomSnackBar.make(root.parent as ViewGroup,message,Snackbar.LENGTH_SHORT,null,
         R.drawable.ic_warning_polygon,null, ContextCompat.getColor(this, R.color.warning_color))?.show()
 }
 

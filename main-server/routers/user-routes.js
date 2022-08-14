@@ -111,6 +111,13 @@ router.post(
             .isLength({ min: 3 })
     ],
     userController.updateUserInfo
-)
+);
+
+// Route: /user/download/app
+router.get(
+    UserApiConstants.download_app,
+    [],
+    userController.downloadApp
+);
 
 module.exports = router;

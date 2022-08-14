@@ -67,9 +67,19 @@ interface UserApi {
     @POST(UserConstants.NEW_COURSES)
     suspend fun getNewCourses(): Response<ResponseBody>
 
+    // ****
+    // Payment:
+    //
+
+    /* Check subscribe user */
     @POST(UserConstants.CHECK_SUBSCRIBE)
     suspend fun checkSubscribe(@Body requestBody: RequestBody): Response<ResponseBody>
 
+    /* Create new payment */
     @POST(PaymentConstants.PAYMENT_TOKEN)
     suspend fun paymentToken(@Body requestBody: RequestBody): Response<ResponseBody>
+
+    /* Get payment tariffs */
+    @POST(PaymentConstants.PAYMENT_TARIFF)
+    suspend fun getPaymentTariff(): Response<ResponseBody>
 }

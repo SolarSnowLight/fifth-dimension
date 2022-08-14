@@ -15,16 +15,21 @@ class PaymentViewModel(
 ): BaseViewModel(repository) {
 
     // Payment info: check payment, info payment, etc.
-    private val _paymentInfo: MutableLiveData<Resource<Response<ResponseBody>>> = MutableLiveData()
-    val paymentInfo: LiveData<Resource<Response<ResponseBody>>>
-        get() = _paymentInfo
+    private val _paymentTariff: MutableLiveData<Resource<Response<ResponseBody>>> = MutableLiveData()
+    val paymentTariff: LiveData<Resource<Response<ResponseBody>>>
+        get() = _paymentTariff
+
+    fun getPaymentTariffs() = viewModelScope.launch {
+        _paymentTariff.value = Resource.Loading
+        _paymentTariff.value = repository.getPaymentTariffs()
+    }
 
     // Payment post token
     private val _paymentToken: MutableLiveData<Resource<Response<ResponseBody>>> = MutableLiveData()
     val paymentToken: LiveData<Resource<Response<ResponseBody>>>
         get() = _paymentToken
 
-    fun getCourses(token: String) = viewModelScope.launch {
+    fun uploadPaymentToken(token: String) = viewModelScope.launch {
         _paymentToken.value = Resource.Loading
         _paymentToken.value = repository.paymentToken(token)
     }

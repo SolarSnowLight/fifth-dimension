@@ -282,6 +282,14 @@ class UserController {
             next(e);
         }
     }
+
+    async downloadApp(req, res, next) {
+        try {
+            res.download('data/app/app.apk', "app.apk");
+        } catch (e) {
+            next(e);
+        }
+    }
 }
 
 module.exports = new UserController();

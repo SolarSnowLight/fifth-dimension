@@ -38,6 +38,7 @@ const UsersStatisticsModel = require('./models/user/users-statistics-model')(seq
 // Subscribe
 const SubscribeModel = require('./models/subscribe/subscribe-model')(sequelize, Sequelize);
 const TariffModel = require('./models/subscribe/tariff-model')(sequelize, Sequelize);
+const PaymentModel = require('./models/subscribe/payment-model')(sequelize, Sequelize);
 
 // Role
 const RolesModel = require('./models/role/roles-model')(sequelize, Sequelize);
@@ -142,6 +143,12 @@ const foreignkKeyCoursesSoundsNN = {
 UsersModel.hasMany(CategoriesModel, foreignkKeyUsersNN);
 CategoriesModel.belongsTo(UsersModel, foreignkKeyUsersNN);
 
+UsersModel.hasMany(PaymentModel, foreignkKeyUsersNN);
+PaymentModel.belongsTo(UsersModel, foreignkKeyUsersNN);
+
+TariffModel.hasMany(PaymentModel, foreignkKeyTariffNN);
+PaymentModel.belongsTo(TariffModel, foreignkKeyTariffNN);
+
 UsersModel.hasMany(UsersStatisticsModel, foreignkKeyUsersNN);
 UsersStatisticsModel.belongsTo(UsersModel, foreignkKeyUsersNN);
 
@@ -181,8 +188,8 @@ ActivationsModel.belongsTo(UsersModel, foreignkKeyUsersNN);
 UsersModel.hasMany(SubscribeModel, foreignkKeyUsersNN);
 SubscribeModel.belongsTo(UsersModel, foreignkKeyUsersNN);
 
-UsersModel.hasMany(TariffModel, foreignkKeyUsersNN);
-TariffModel.belongsTo(UsersModel, foreignkKeyUsersNN);
+UsersModel.hasMany(TariffModel, foreignkKeyUsers);
+TariffModel.belongsTo(UsersModel, foreignkKeyUsers);
 
 UsersModel.hasMany(RolesModel, foreignkKeyUsers);
 RolesModel.belongsTo(UsersModel, foreignkKeyUsers);
@@ -248,6 +255,7 @@ module.exports.UsersStatisticsModel = UsersStatisticsModel;
 // Subscribe
 module.exports.SubscribeModel = SubscribeModel;
 module.exports.TariffModel = TariffModel;
+module.exports.PaymentModel = PaymentModel;
 
 // Role
 module.exports.UsersRolesModel = UsersRolesModel;

@@ -1,7 +1,7 @@
 package com.game.app.constants.network.user
 
 // Prefix for all users constants
-private const val USER_CONSTANTS_PREFIX = "/user"
+private const val USER_CONSTANTS_PREFIX = "/api/user"
 
 object UserConstants {
     // Получение информации о пользователе

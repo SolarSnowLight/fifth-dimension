@@ -93,6 +93,7 @@ class AuthService {
             };
         }catch(e) {
             await t.rollback();
+            throw ApiError.BadRequest(e.message);
         }
     }
 
