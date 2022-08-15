@@ -8,10 +8,11 @@ const {
     TariffModel, SubscribeModel,
     CoursesDeletedModel, sequelize, Sequelize, UsersModel
 } = require('../../data/index');
-const { YooCheckout } = require('@a2seven/yoo-checkout');
+const { YooCheckout, PaymentStatuses } = require('@a2seven/yoo-checkout');
 const uuid = require('uuid');
 const TarrifInfoDto = require('../../dtos/payment/tarrif-info-dto');
 const PaymentStatusValueConstants = require('../../constants/values/payment-status-value-constants');
+const { DateTime } = require('luxon');
 
 class PaymentService {
     async tariffGet() {
@@ -116,11 +117,7 @@ class PaymentService {
             });
 
 
-            const link = process.env.LANDING_URL_PAYMENT + "/?user_id=" + user.uuid
-                + "&confirmation_token=" + payment.confirmation.confirmation_token
-                + "&payment_key=" + paymentKey
-                + "&success_key=" + successKey
-                + "&tariff_id=" + tariff.uuid;
+            const link = process.env.LANDING_URL_PAYMENT + "/?confirmation_token=" + payment.confirmation.confirmation_token;
             
             await t.commit();
 
@@ -131,34 +128,40 @@ class PaymentService {
         }
     }
 
-    async paymentSuccess(usersId, confirmationToken, paymentKey, successKey, tariffId) {
-        // Начало транзакции
+    async paymentSuccess(confirmationToken) {
+
         const t = await sequelize.transaction();
 
         try {
-            // Create new YooCheckout
             const checkout = new YooCheckout({
                 shopId: process.env.YOOKASSA_SHOP_ID,
                 secretKey: process.env.YOOKASSA_SECRET_KEY
             });
 
-            // Check for subsrcibe
-            const subscribe = await SubscribeModel.findOne({
+            const payment = await PaymentModel.findOne({
                 where: {
-                    users_id: usersId,
-                    is_active: true
+                    confirmation_token: confirmationToken,
+                    status: PaymentStatusValueConstants.proceed
                 }
             });
 
-            if (subscribe) {
-                throw ApiError.BadRequest("Данный пользователь уже имеет подписку!")
+            if (!payment) {
+                throw ApiError.BadRequest("Данный платёж не может быть подтверждён из-за завершающего статуса платежа!");
             }
 
-            // Find tariff
+            const paymentInfo = await checkout.getPayment(payment.payment_id);
+            
+            // Need change payment status
+            if((!paymentInfo.paid) || (paymentInfo.status != PaymentStatuses.waiting_for_capture)){
+                throw ApiError.BadRequest("Платёж не был завершён!");
+            }
+
+            payment.status = PaymentStatusValueConstants.success;
+            await payment.save();
+
             const tariff = await TariffModel.findOne({
                 where: {
-                    uuid: tariffId,
-                    is_active: true
+                    id: payment.tariff_id
                 }
             });
 
@@ -166,168 +169,24 @@ class PaymentService {
                 throw ApiError.BadRequest("Данного тарифа не существует!");
             }
 
-            // Find user
-            const user = await UsersModel.findOne({
-                where: {
-                    uuid: usersId
-                }
-            });
-
-            if (!user) {
-                throw ApiError.BadRequest("Данного пользователя не существует!");
-            }
-
-            const payment = await PaymentModel.findOne({
-                where: {
-                    users_id: user.id,
-                    tariff_id: tariff.id,
-                    confirmation_token: confirmationToken,
-                    payment_key: paymentKey,
-                    success_key: successKey
-                }
-            });
-
-            if(!payment){
-                throw ApiError.BadRequest("Подтверждение платежа невозможно, так как реквизиты платежа были изменены!");
-            }
-
-
-            // Create new payment
-            /*const payment = await checkout.createPayment(
-                {
-                    "amount": {
-                        "value": tariff.price,
-                        "currency": "RUB"
-                    },
-                    "confirmation": {
-                        "type": "embedded",
-                    },
-                    "capture": false,
-                    "description": "Подписка \"" + tariff.description + "\"",
-                    "metadata": {
-                        "tariff_id": tariff.id
-                    }
-                    
-                    for mobile SDK
-                    "payment_token": paymentToken,
-                    "confirmation": {
-                        "type": "redirect",
-                        "return_url": "http://localhost:5000"
-                    },
-                },
-                idempotenceKey
-            );*/
-
-            // const paymentInfo = await checkout.getPayment(payment.id);
-
-            const [paymentKey, successKey] = [uuid.v4(), uuid.v4()];
-
-            await PaymentModel.create({
-                users_id: usersId,
-                tariff_id: tariff.id,
-                payment_id: payment.id,
-                idempotence_key: idempotenceKey,
-                payment_key: paymentKey,
-                success_key: successKey,
-                status: PaymentStatusValueConstants.proceed,
-                confirmation_token: payment.confirmation.confirmation_token
+            const currentData = DateTime.local();
+            
+            await SubscribeModel.create({
+                users_id: payment.users_id,
+                tariff_id: payment.tariff_id,
+                date_activation: currentData.toISO(),
+                date_completion: currentData.plus({days: tariff.period}).toISO(),
+                is_active: true
             }, {
                 transaction: t
             });
 
-
-            const link = process.env.LANDING_URL_PAYMENT + "/?user_id=" + user.uuid
-                + "&confirmation_token=" + payment.confirmation.confirmation_token
-                + "&payment_key=" + paymentKey
-                + "&success_key=" + successKey
-                + "&tariff_id=" + tariff.uuid;
-            
             await t.commit();
 
-            return link;
+            return true;
         } catch (e) {
             await t.rollback();
             throw ApiError.BadRequest(e.message);
-        }
-
-        try {
-            /*const payment = await checkout.createPayment(
-                {
-                    // "payment_token": paymentToken,
-                    "amount": {
-                        "value": "5.00",
-                        "currency": "RUB"
-                    },
-                    "confirmation": {
-                        "type": "embedded",
-                    },
-                    "capture": true,
-                    "description": "Заказ №1",
-                    "metadata": {
-                      "order_id": "37"
-                    }
-                },
-                idempotenceKey
-            );*/
-            //console.log(payment)
-
-            /*const receipt = await checkout.createReceipt(
-                {
-                    "customer": {
-                        "full_name": "Иванов Иван Иванович",
-                        "email": "swdaniel@yandex.ru"
-                    },
-                    "payment_id": paymentId,
-                    "type": "payment",
-                    "send": true,
-                    "items": [
-                        {
-                            "description": "Подписка 1",
-                            "quantity": "1.00",
-                            "amount": {
-                                "value": "5.00",
-                                "currency": "RUB"
-                            },
-                            "vat_code": "2",
-                            "payment_mode": "full_prepayment",
-                            "payment_subject": "commodity",
-                            "country_of_origin_code": "CN",
-                        },
-                    ],
-                    // 'cashless' | 'prepayment' | 'postpayment' | 'consideration';
-                    "settlements": [
-                        {
-                            "type": "cashless",
-                            "amount": {
-                                "value": "5.00",
-                                "currency": "RUB"
-                            },
-                        }
-                    ]
-                },
-                idempotenceKey
-            );*/
-
-            const paymentInfo = await checkout.getPayment(paymentId);
-            console.log(paymentInfo)
-
-            /*const receiptInfo = await checkout.getReceipt(receipt.id);
-            console.log(receiptInfo);*/
-
-            /*const paymentGet = await checkout.capturePayment(
-                payment.id,
-                {
-                    "amount": {
-                        "value": "1500.00",
-                        "currency": "RUB"
-                    }
-                },
-                idempotenceKey
-            );
-
-            console.log(paymentGet);*/
-        } catch (error) {
-            console.log(error);
         }
     }
 }

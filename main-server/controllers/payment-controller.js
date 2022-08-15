@@ -32,9 +32,9 @@ class PaymentController {
 
     async paymentSuccess(req, res, next){
         try {
-            const { payment_id } = req.body;
+            const { confirmation_token } = req.body;
 
-            await paymentService.paymentSuccess(payment_id);
+            await paymentService.paymentSuccess(confirmation_token);
             
             return res.status(201).json({
                 created: true

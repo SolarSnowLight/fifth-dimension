@@ -8,6 +8,7 @@ const PaymentApiConstants = {
     success: '/success',
 
     create: '/create',
+    info: '/info'
 }
 
 module.exports = PaymentApiConstants;

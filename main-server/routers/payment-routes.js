@@ -12,7 +12,7 @@ router.post(
         authMiddleware
     ],
     paymentController.postTarrifGet
-)
+);
 
 // Маршрут: /payment/create
 router.post(
