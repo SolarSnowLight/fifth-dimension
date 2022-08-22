@@ -83,7 +83,7 @@ class PaymentService {
                     "confirmation": {
                         "type": "embedded",
                     },
-                    "capture": false,
+                    "capture": true,
                     "description": "Подписка \"" + tariff.description + "\"",
                     "metadata": {
                         "tariff_id": tariff.id
@@ -149,15 +149,16 @@ class PaymentService {
                 throw ApiError.BadRequest("Данный платёж не может быть подтверждён из-за завершающего статуса платежа!");
             }
 
+            if (payment.status == PaymentStatusValueConstants.success){
+                throw ApiError.BadRequest("Данный платёж не может быть подтверждён, так как он уже подтверждён!");
+            }
+
             const paymentInfo = await checkout.getPayment(payment.payment_id);
             
             // Need change payment status
-            if((!paymentInfo.paid) || (paymentInfo.status != PaymentStatuses.waiting_for_capture)){
+            if((!paymentInfo.paid) || (paymentInfo.status != PaymentStatuses.succeeded)){
                 throw ApiError.BadRequest("Платёж не был завершён!");
             }
-
-            payment.status = PaymentStatusValueConstants.success;
-            await payment.save();
 
             const tariff = await TariffModel.findOne({
                 where: {
@@ -169,6 +170,20 @@ class PaymentService {
                 throw ApiError.BadRequest("Данного тарифа не существует!");
             }
 
+            /*await checkout.capturePayment(
+                payment.payment_id,
+                {
+                    "amount": {
+                        "value": tariff.price,
+                        "currency": "RUB"
+                    }
+                },
+                payment.idempotenceKey
+            );*/
+
+            payment.status = PaymentStatusValueConstants.success;
+            await payment.save();
+
             const currentData = DateTime.local();
             
             await SubscribeModel.create({
@@ -176,7 +191,7 @@ class PaymentService {
                 tariff_id: payment.tariff_id,
                 date_activation: currentData.toISO(),
                 date_completion: currentData.plus({days: tariff.period}).toISO(),
-                is_active: true
+                is_active: false // TEST
             }, {
                 transaction: t
             });
@@ -185,6 +200,7 @@ class PaymentService {
 
             return true;
         } catch (e) {
+            console.log(e);
             await t.rollback();
             throw ApiError.BadRequest(e.message);
         }

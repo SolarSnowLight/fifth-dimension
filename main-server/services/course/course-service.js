@@ -627,20 +627,21 @@ class CourseService {
     async checkSubscribe(usersId) {
         const userSubscribe = await SubscribeModel.findOne({
             where: {
-                users_id: usersId
+                users_id: usersId,
+                is_active: true
             }
         });
 
-        if(!userSubscribe){
+        if((!userSubscribe) || (userSubscribe.length <= 0)){
             return false;
         }
 
-        const dateNow = new Date((new Date()).toISOString().slice(0, 10));
+        /*const dateNow = new Date((new Date()).toISOString().slice(0, 10));
         const dateCompletetion = new Date(userSubscribe.date_completion.toISOString().slice(0, 10));
 
         if(dateNow > dateCompletetion){
             return false;
-        }
+        }*/
 
         return true;
     }

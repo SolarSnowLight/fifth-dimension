@@ -3,8 +3,10 @@ import { useSearchParams } from 'react-router-dom';
 import MainApiConstants from '../../constants/api/main.api';
 import PaymentApiConstants from '../../constants/api/payment.api';
 import styles from './Payment.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
+    const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const confirmationToken = searchParams.get("confirmation_token");
 
@@ -32,11 +34,13 @@ const Payment = () => {
             }
         );
 
-        if(response.ok){
-            // redirect to ok
-        }
+        // alert(JSON.stringify(await response.json()));
 
-        // redirect to non ok
+        if(response.ok){
+            navigate("/5measurement/payment/success");
+        }else{
+            navigate("/5measurement/payment/failed");
+        }
     };
 
     /* Обработка ситуации завершения платежа пользователем */
