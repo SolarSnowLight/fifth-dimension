@@ -13,6 +13,7 @@ const uuid = require('uuid');
 const TarrifInfoDto = require('../../dtos/payment/tarrif-info-dto');
 const PaymentStatusValueConstants = require('../../constants/values/payment-status-value-constants');
 const { DateTime } = require('luxon');
+const mailService = require('../mail/mail-service');
 
 class PaymentService {
     async tariffGet() {
@@ -160,6 +161,16 @@ class PaymentService {
                 throw ApiError.BadRequest("Платёж не был завершён!");
             }
 
+            const userInfo = await UsersModel.findOne({
+                where: {
+                    id: payment.users_id
+                }
+            });
+
+            if(!userInfo){
+                throw ApiError.BadRequest("Данного пользователя не существует!");
+            }
+
             const tariff = await TariffModel.findOne({
                 where: {
                     id: payment.tariff_id
@@ -191,12 +202,14 @@ class PaymentService {
                 tariff_id: payment.tariff_id,
                 date_activation: currentData.toISO(),
                 date_completion: currentData.plus({days: tariff.period}).toISO(),
-                is_active: false // TEST
+                is_active: true
             }, {
                 transaction: t
             });
 
             await t.commit();
+
+            await mailService.sentPaymentMail(userInfo.email, tariff.description, tariff.price);
 
             return true;
         } catch (e) {

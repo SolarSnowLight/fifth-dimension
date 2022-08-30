@@ -4,11 +4,14 @@ import MainApiConstants from '../../constants/api/main.api';
 import PaymentApiConstants from '../../constants/api/payment.api';
 import styles from './Payment.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 
 const Payment = () => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const confirmationToken = searchParams.get("confirmation_token");
+    const [viewPayment, setViewPayment] = useState(false);
 
     // Инициализация виджета от ЮKassa. Все параметры обязательные.
     const checkout = new window.YooMoneyCheckoutWidget({
@@ -20,7 +23,7 @@ const Payment = () => {
     });
 
     /* Обработка ситуации успешного платежа пользователем */
-    const successHandler = async() => {
+    const successHandler = async () => {
         const response = await fetch(
             (MainApiConstants.main_server + PaymentApiConstants.payment_success),
             {
@@ -34,12 +37,10 @@ const Payment = () => {
             }
         );
 
-        // alert(JSON.stringify(await response.json()));
-
-        if(response.ok){
-            navigate("/5measurement/payment/success");
-        }else{
-            navigate("/5measurement/payment/failed");
+        if (response.ok) {
+            navigate("/5measurement/payment/success", { replace: true });
+        } else {
+            navigate("/5measurement/payment/failed", { replace: true });
         }
     };
 
@@ -49,14 +50,18 @@ const Payment = () => {
     };
 
     useEffect(() => {
-        /* Отображение платежной формы в контейнере */
-        checkout.render('payment-form');
+        if (!viewPayment) {
+            /* Отображение платежной формы в контейнере */
+            checkout.render('payment-form');
 
-        /* Обработка ситуации успешного платежа пользователем */
-        checkout.on("success", successHandler);
+            /* Обработка ситуации успешного платежа пользователем */
+            checkout.on("success", successHandler);
 
-        /* Обработка ситуации завершения платежа пользователем */
-        checkout.on("complete", completeHandler);
+            /* Обработка ситуации завершения платежа пользователем */
+            checkout.on("complete", completeHandler);
+
+            setViewPayment(true);
+        }
     }, []);
 
     return (

@@ -48,6 +48,10 @@
     border-radius: 32px;
 }
 
+.btn:hover {
+    cursor: pointer;
+}
+
 .pp {
     text-decoration: none;
     color: var(--middle-coffee);

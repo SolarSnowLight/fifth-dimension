@@ -1,0 +1,22 @@
+.payment-block {
+  width: 40em;
+  height: max-content;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+  color: var(--dark-brown-1);
+  font-size: 18px;
+  font-family: "TNR";
+  width: 300px;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  background: white;
+  border-radius: 32px;
+  border: 2px solid green
+}
+
+.payment-text-success {
+    color: green;
+}

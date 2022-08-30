@@ -8,6 +8,7 @@ import icon from "../../resources/logo_black.svg";
 import left from "../../resources/left.png";
 import right from "../../resources/right.png";
 import UserAgreement from "../UserAgreement";
+import MainApiConstants from "../../constants/api/main.api";
 
 const Content = () => {
   return (
@@ -24,26 +25,28 @@ const Content = () => {
               жизнь к лучшему
             </h1>
             <h2>
-              Саморазвивайся в обасти здоровье, любовь,<br/>
-              отношения, деньги, концентрация,<br/>
-              предназначение. Здесь ты найдёшь  <br/>
+              Саморазвивайся в обасти здоровье, любовь,<br />
+              отношения, деньги, концентрация,<br />
+              предназначение. Здесь ты найдёшь  <br />
               для себя Свои личные ключи к Счастью. <br />
-             <br />
+              <br />
             </h2>
           </div>
-          <button 
-          className={styles["btn"]}
-          onClick={async() => {
-            const resp = await fetch(
-              'https://kristinakaruna.ru/api/user/download/app',
-              {
-                method: "GET"
-              }
-            );
+          <a href={`${MainApiConstants.main_server}/data/app/app.apk`} download>
+            <button
+              className={styles["btn"]}
+              onClick={async () => {
+                /*const resp = await fetch(
+                  'http://localhost:5000/api/user/download/app',
+                  {
+                    method: "GET"
+                  }
+                );*/
 
-            //console.log(resp);
-          }}
-          > Скачать приложение для Android</button>
+                //console.log(resp);
+              }}
+            > Скачать приложение для Android</button>
+          </a>
         </div>
 
         <NavLink to="/5measurement/policy" element={PrivacyPolicy} className={styles["pp"]}>
